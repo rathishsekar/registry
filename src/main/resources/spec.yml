@@ -1,0 +1,47 @@
+openapi: 3.0.0
+info:
+  title: Sample API
+  description: land registry apis
+  version: 0.1.9
+servers:
+  - url: http://localhost:8080
+    description: localmachine server details
+tags:
+  - name: "registry"
+paths:
+  /registry/{landId}:
+    get:
+      tags:
+        - registry
+      summary: Returns land details for given id.
+      parameters:
+        - name: landId
+          in: path
+          required: true
+          description: The ID of the land to return.
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+      responses:
+        '200':
+          description: A land object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LandDetails'
+        '400':
+          description: The specified land ID is invalid (not a number).
+        '404':
+          description: A land with the specified ID was not found.
+        default:
+          description: Unexpected error
+components:
+  schemas:
+    LandDetails:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 4

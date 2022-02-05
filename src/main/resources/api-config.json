@@ -1,0 +1,9 @@
+{
+  "sourceFolder": "src/main/kotlin",
+  "delegatePattern": true,
+  "api-suffix": "",
+  "useTags": true,
+  "exceptionHandler": false,
+  "enumPropertyNaming": "UPPERCASE",
+  "swaggerAnnotation": false
+}
