@@ -39,6 +39,12 @@ tasks.withType<Test> {
 	useJUnitPlatform()
 }
 
+tasks.bootJar {
+	manifest {
+		attributes ["Start-Class"] = "RegistryApplicationKt"
+	}
+}
+
 openApiGenerate {
 	generatorName.set("kotlin-spring")
 	inputSpec.set("src/main/resources/spec.yml")
