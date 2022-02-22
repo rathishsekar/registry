@@ -41,7 +41,7 @@ tasks.withType<Test> {
 
 tasks.bootJar {
 	manifest {
-		attributes ["Start-Class"] = "RegistryApplicationKt"
+		attributes ["Start-Class"] = "com.land.registry.RegistryApplicationKt"
 	}
 }
 
