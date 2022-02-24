@@ -23,7 +23,9 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.springdoc:springdoc-openapi-kotlin:1.5.12")
 	implementation("org.springdoc:springdoc-openapi-ui:1.5.12")
+	implementation("io.mockk:mockk:1.11.0")
 	compileOnly("javax.servlet:servlet-api:2.5")
+	testImplementation("io.kotest:kotest-runner-junit5-jvm:4.6.0")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 

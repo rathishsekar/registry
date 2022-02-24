@@ -10,6 +10,6 @@ import org.springframework.stereotype.Service
 class LandRegistryDelegateImpl(): RegistryApiDelegate {
 
     override fun registryLandIdGet(landId: Long):  ResponseEntity<LandDetails>{
-        return ResponseEntity(LandDetails(1), HttpStatus.OK)
+        return ResponseEntity(LandDetails(landId), HttpStatus.OK)
     }
 }
