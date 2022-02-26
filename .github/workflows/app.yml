@@ -1,4 +1,6 @@
 name: Registry App CI
+on:
+  workflow_call:
 
 jobs:
   test:
