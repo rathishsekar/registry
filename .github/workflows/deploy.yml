@@ -6,6 +6,7 @@ on:
 
 jobs:
   build:
+    needs: .github/workflows/app.yml@master
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -14,8 +15,8 @@ jobs:
       - name: Login to AWS
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          - aws-secrets-key-id: ${{ AWS_ACCESS_KEY_ID }}
-          - aws-secrets-access-id: ${{ AWS_SECRET_ACCESS_KEY }}
+          - aws-secrets-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          - aws-secrets-access-id: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           - aws-region: ap-south-1
 
       - name: Login to Amazon ECR
