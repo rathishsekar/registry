@@ -5,9 +5,18 @@ on:
     branches : [master]
 
 jobs:
-  build:
-    needs: rathishsekar/registry/.github/workflows/app.yml@master
+  test:
     runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: build
+        run: ./gradlew build
+      - name: test
+        run: ./gradlew test
+  build:
+    runs-on: ubuntu-latest
+    uses: test
     steps:
       - name: checkout
         uses: actions/checkout@v2
