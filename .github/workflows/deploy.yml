@@ -43,7 +43,7 @@ jobs:
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-          TF_VAR_image_uri=image_uri="$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+          TF_VAR_image_uri="$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
 
       - name: Deploy to ECS
         run: |
