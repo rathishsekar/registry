@@ -48,6 +48,7 @@ jobs:
       - name: Deploy to ECS
         run: |
           cd infrastructure/registryservice/
+          echo ->${image_uri}
           TF_VAR_image_uri="${image_uri}"
           terraform init
           terraform plan
