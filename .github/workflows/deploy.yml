@@ -46,10 +46,8 @@ jobs:
           export image_uri=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
       - name: Deploy to ECS
-        with:
-          image_uri: ${{ steps.build-image.outputs.image }}
         env:
-          TF_VAR_image_uri=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          TF_VAR_image_uri: $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         run: |
           cd infrastructure/registryservice/
           terraform init
