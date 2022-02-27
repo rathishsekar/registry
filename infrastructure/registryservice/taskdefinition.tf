@@ -6,7 +6,7 @@ resource "aws_ecs_task_definition" "registry_task" {
   cpu    = 1024
   memory = 512
   container_definitions = {
-    image = "${var.image_uri}"
+    image = var.image_uri
   }
 }
 
