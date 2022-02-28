@@ -3,11 +3,16 @@ resource "aws_ecs_task_definition" "registry_task" {
   requires_compatibilities = ["FARGATE"]
   network_mode             = "awsvpc"
   execution_role_arn = "${aws_iam_role.ecsTaskExecutionRole.arn}"
-  cpu    = 1024
-  memory = 512
-  container_definitions = {
-    image = "${var.image_uri}"
-  }
+  cpu    = 512
+  memory = 1024
+  container_definitions = <<DEFINITION
+  [
+    {
+      "name"  : "registry",
+      "image" : "${var.image_uri}"
+    }
+  ]
+  DEFINITION
 }
 
 resource "aws_iam_role" "ecsTaskExecutionRole" {
