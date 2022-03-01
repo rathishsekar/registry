@@ -9,7 +9,7 @@ resource "aws_ecs_task_definition" "registry_task" {
   [
     {
       "name"  : "registry",
-      "image" : "${var.image_uri}"
+      "image" : "350481107983.dkr.ecr.ap-south-1.amazonaws.com/registry_app_repo"
     }
   ]
   DEFINITION
